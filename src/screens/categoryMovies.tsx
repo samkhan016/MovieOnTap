@@ -51,7 +51,8 @@ export default function CategoryMovies(props?: any) {
       headerRight: () =>
         !isSearch && <CustomSearch setIsSearch={setIsSearch} />,
     });
-  }, [isSearch, searchQuery, navigation]);
+    if (isSearch == false) setSearchQuery('');
+  }, [isSearch, searchQuery]);
 
   useEffect(() => {
     getMovies();

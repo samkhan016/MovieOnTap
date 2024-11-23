@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Watch from '../screens/watch';
 import MediaLibrary from '../screens/mediaLibrary';
 import More from '../screens/more';
-import {Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, Platform, StyleSheet, TouchableOpacity} from 'react-native';
 import Theme from '../utils/theme';
 import {heightPercentageToDP} from 'react-native-responsive-screen';
 import CategoryStack from './categoryStack';
@@ -88,7 +88,10 @@ const styles = (props?: boolean) =>
       backgroundColor: Theme.Gunmetal,
       borderRadius: 27,
       paddingTop: heightPercentageToDP(1),
-      height: heightPercentageToDP(8),
+      height:
+        Platform.OS == 'ios'
+          ? heightPercentageToDP(10)
+          : heightPercentageToDP(8),
     },
     tabIcon: {
       width: 16,

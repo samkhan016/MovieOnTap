@@ -34,7 +34,11 @@ export default function CustomHeader({
         onChangeText={OnTextChange}
         style={styles.textInput}
       />
-      <TouchableOpacity activeOpacity={0.5} onPress={() => isVisible(false)}>
+      <TouchableOpacity
+        activeOpacity={0.5}
+        onPress={() => {
+          isVisible(false);
+        }}>
         <Image
           source={require('../assets/close.png')}
           style={styles.closeIcon}

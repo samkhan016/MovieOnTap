@@ -66,7 +66,9 @@ export default function Dashboard(props?: any) {
       headerRight: () =>
         !isSearch && <CustomSearch setIsSearch={setIsSearch} />,
     });
-  }, [isSearch, searchQuery, navigation]);
+
+    if (isSearch == false) setSearchQuery('');
+  }, [isSearch, searchQuery]);
 
   const filteredCategories = categories.filter((item: any) =>
     item?.name?.toLowerCase().includes(searchQuery.toLowerCase()),
